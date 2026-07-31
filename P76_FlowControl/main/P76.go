@@ -1,4 +1,4 @@
-package main
+package main // 7.31
 
 import "fmt"
 
@@ -6,6 +6,9 @@ import "fmt"
 // 同一个文件夹下的内容本身就是一个包里的，所以同一个文件夹里的函数是可以直接调用的
 
 func main() {
+
+	testCont()
+
 	var age int
 	fmt.Print("请输入年龄：")
 	_, err := fmt.Scanln(&age) // Scanf接收的是一个变量的地址
@@ -59,6 +62,21 @@ func main() {
 		fmt.Println("出入格式有误，重新输入。")
 	}
 	testSwitch(cin)
+
+	fallt()
+	fmt.Println()
+
+	tower()
+	fmt.Println()
+
+	table()
+	fmt.Println()
+
+	num()
+	fmt.Println()
+
+	login()
+
 }
 
 // Scanf 函数扫描从标准输入读取的文本，并将连续的空格分隔值存储到指定的参数中

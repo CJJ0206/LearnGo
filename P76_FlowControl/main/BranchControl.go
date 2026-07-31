@@ -1,6 +1,9 @@
-package main
+package main // 7.31
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // 单分支
 func isAdult(age int) {
@@ -77,5 +80,124 @@ func os(s string) {
 		fmt.Println("Windows")
 	default:
 		fmt.Println("Other OS")
+	}
+}
+
+func fallt() {
+	var i int = 10
+	switch i {
+	case 10:
+		fmt.Println("10")
+		fallthrough // switch穿透，只穿透下一层直接执行输出
+	case 20:
+		fmt.Println("穿透一层")
+	case 30:
+		fmt.Println("穿透两层")
+	}
+}
+
+/* switch 细节
+case 后可以是一个表达式
+case 后可以带多个表达式，用逗号隔开
+case 甚至可以跟一个又返回值的函数，或者常量（只要有值就行）
+switch 和 case 的值的数据类型要一致，否则报错
+switch 后可以不带表达式，直接当做if else 语句用
+Type switch:switch语句还可以用于 type-switch 来判断某个 interface（接口） 变量中实际指向的变量类型
+
+
+
+
+switch n1{
+	case n2 , 10 , 5:  // 是允许这样做的去和多个选项比较
+		fmt.Print()
+}
+
+
+
+switch {  // 这种switch后面不加表达式就相当于是一个if分支语句
+	case age == 10 :
+		fmt.Pringt（"为成年"）
+	case age == 20 :
+		fmt.Print("成年了")
+}
+
+
+
+switch {  // case后面的语句也可以是一些判断表达式
+	case age < 10 :
+		fmt.Pringt（"为成年"）
+	case age > 20 :
+		fmt.Print("成年了")
+}
+
+
+
+func inter(i int, x interface{}) {
+	switch i := x.(type) { // i 会接收 x 的数据类型
+	case nil:
+		fmt.Printf("x的类型是%T")
+	case int:
+		fmt.Println("x的类型是int")
+	case float64:
+		fmt.Println("类型是float")
+	}
+}
+*/
+
+// test ----------------------------------------------------------------------------
+func test1() {
+	var x int = 4
+	var y int = 1
+
+	// 无论多复杂，双分支永远只执行其中的一支，永远只有一直要看
+	if x > 2 {
+		if y > 2 {
+			fmt.Println(x + y)
+		}
+		fmt.Println("cjj ")
+
+	} else {
+		fmt.Println(x)
+	}
+}
+
+func test2(a int32, b int32) {
+	if a+b > 50 {
+		fmt.Println("over over over ")
+	}
+}
+
+func test3(a float32, b float32) {
+	if a > 10.0 && b < 20.0 {
+		fmt.Printf("两数和为：%f \n", a+b)
+	}
+}
+
+func test4(a int32, b int32) {
+	sum := a + b
+	if sum%5 == 0 && sum%3 == 0 {
+		fmt.Println("该两数的和能够被3、5整除 ")
+	}
+}
+
+func test5(a int32) {
+	if (a%4 == 0 && a%100 != 0) || a%400 == 0 {
+		fmt.Printf("%d年是闰年\n", a)
+	} else {
+		fmt.Printf("%d年不是闰年\n", a)
+	}
+}
+
+func test6(a float64, b float64, c float64) {
+	delta := b*b - 4*a*c
+	if delta > 0 {
+		ans1 := (-b + math.Sqrt(delta)) / (2 * a)
+		ans2 := (-b - math.Sqrt(delta)) / (2 * a)
+		fmt.Printf("此方程有两个根。分别为：%v 和 %v\n", ans1, ans2)
+	} else if delta == 0 {
+		ans1 := (-b + math.Sqrt(delta)) / 2 * a
+		fmt.Printf("此方程有一个根。分别为：%v \n", ans1)
+	} else {
+		fmt.Printf("此方程有无解。")
 	}
 }
