@@ -1,4 +1,4 @@
-package main
+package ZZ_others
 
 // 总之就是都要在根目录执行下 （go mod init 根）
 
