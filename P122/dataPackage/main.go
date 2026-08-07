@@ -72,7 +72,7 @@ func main() {
 
 	// 执行前获取时间戳 普通Unix的单位是秒
 	start := time.Now().Unix()
-	test()
+	// test()
 	end := time.Now().Unix()
 	fmt.Printf("执行test消耗时间为：%v 秒 \n", end-start) // 十万次执行了4秒
 
