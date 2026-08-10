@@ -95,6 +95,12 @@ func ConvStr() {
 	fmt.Println(str)                  // a b c
 }
 
+// -------------------------- strings 库系列函数 -----------------------------
+/*
+func Contains(s, substr string) bool  返回的是 bool
+func Index(s, substr string) int  返回的是 坐标
+*/
+
 func Contain() {
 	val := strings.Contains("Hello World", "Wor")
 	fmt.Printf("输出类型是 %T, 输出值为 %v \n", val, val)
