@@ -30,7 +30,7 @@ func createStruct2() {
 }
 
 func createStruct3() {
-	var p2 = new(Person)
+	var p2 = new(Person) // new 一个struct对象出来，那这个p2就是个指针了
 	(*p2).name = "cjj"
 	p2.name = "sby" // fixme 这两行在go里面是一样的，go为了简化，在底层就帮我们做了（*p）
 	p2.age = 24
